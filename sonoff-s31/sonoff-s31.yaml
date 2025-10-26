@@ -43,7 +43,7 @@ binary_sensor:
     platform: status
 
 sensor:
-  - name: "WiFi Signal"
+  - name: "Wi-Fi signal"
     platform: wifi_signal
     update_interval: 60s
   - platform: cse7766
