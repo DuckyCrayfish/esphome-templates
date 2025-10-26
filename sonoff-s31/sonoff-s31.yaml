@@ -21,8 +21,9 @@ ota:
   - platform: esphome
     id: ota_esphome
 
-# Disable logging
+# Disable UART logging
 logger:
+  level: INFO
   baud_rate: 0 # (UART logging interferes with cse7766)
 
 uart:
