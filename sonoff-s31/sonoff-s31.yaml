@@ -46,13 +46,16 @@ sensor:
   - name: "Wi-Fi signal"
     platform: wifi_signal
     update_interval: 60s
+    disabled_by_default: True
   - platform: cse7766
     current:
       name: "Current"
       accuracy_decimals: 2
+      disabled_by_default: True
     voltage:
       name: "Voltage"
       accuracy_decimals: 1
+      disabled_by_default: True
     power:
       name: "Power"
       id: power
@@ -72,7 +75,6 @@ sensor:
 time:
   - id: the_time
     platform: sntp
-    
 
 switch:
   - name: "${friendly_name}"
