@@ -68,6 +68,7 @@ sensor:
     unit_of_measurement: kWh
     filters:
       - multiply: 0.001
+    icon: mdi:lightning-bolt
   - name: "Total daily energy"
     platform: total_daily_energy
     power_id: power
