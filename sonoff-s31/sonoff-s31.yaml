@@ -1,0 +1,84 @@
+substitutions:
+  name: sonoff-s31
+  friendly_name: Sonoff S31
+
+esphome:
+  name: ${name}
+  friendly_name: ${friendly_name}
+  min_version: 2024.9.0
+
+esp8266:
+  board: esp01_1m
+
+api:
+
+wifi:
+  ap:
+
+captive_portal:
+    
+ota:
+  - platform: esphome
+    id: ota_esphome
+
+# Disable logging
+logger:
+  baud_rate: 0 # (UART logging interferes with cse7766)
+
+uart:
+  rx_pin: RX
+  baud_rate: 4800
+  parity: EVEN
+
+binary_sensor:
+  - name: "Button"
+    platform: gpio
+    pin:
+      number: GPIO0
+      mode: INPUT_PULLUP
+      inverted: True
+    on_press:
+      - switch.toggle: relay 
+  - name: "Connection status"
+    platform: status
+
+sensor:
+  - name: "WiFi Signal"
+    platform: wifi_signal
+    update_interval: 60s
+  - platform: cse7766
+    current:
+      name: "Current"
+      accuracy_decimals: 2
+    voltage:
+      name: "Voltage"
+      accuracy_decimals: 1
+    power:
+      name: "Power"
+      accuracy_decimals: 1
+      id: power
+  - name: "Energy"
+    platform: integration
+    sensor: power
+    time_unit: h
+    state_class: measurement
+    unit_of_measurement: kWh
+    filters:
+      - multiply: 0.001
+  - platform: total_daily_energy
+    name: "Total daily energy"
+    power_id: power
+
+time:
+  - platform: sntp
+    id: the_time
+
+switch:
+  - name: "${friendly_name}"
+    id: relay
+    platform: gpio
+    pin: GPIO12
+    restore_mode: RESTORE_DEFAULT_ON
+
+status_led:
+  pin: GPIO13
