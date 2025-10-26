@@ -55,8 +55,8 @@ sensor:
       accuracy_decimals: 1
     power:
       name: "Power"
-      accuracy_decimals: 1
       id: power
+      accuracy_decimals: 1
   - name: "Energy"
     platform: integration
     sensor: power
@@ -65,13 +65,14 @@ sensor:
     unit_of_measurement: kWh
     filters:
       - multiply: 0.001
-  - platform: total_daily_energy
-    name: "Total daily energy"
+  - name: "Total daily energy"
+    platform: total_daily_energy
     power_id: power
 
 time:
-  - platform: sntp
-    id: the_time
+  - id: the_time
+    platform: sntp
+    
 
 switch:
   - name: "${friendly_name}"
