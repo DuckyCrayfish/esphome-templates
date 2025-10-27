@@ -1,6 +1,7 @@
 substitutions:
   name: sonoff-s31
   friendly_name: Sonoff S31
+  sensor_throttle: 60s
 
 esphome:
   name: ${name}
@@ -10,6 +11,7 @@ esphome:
 esp8266:
   board: esp01_1m
 
+# Remove the following line if you're not using Home Assistant or your switch will restart every now and again.
 api:
 
 captive_portal:
@@ -51,19 +53,19 @@ sensor:
       accuracy_decimals: 2
       disabled_by_default: True
       filters:
-        - throttle_average: 60s
+        - throttle_average: ${sensor_throttle}
     voltage:
       name: "Voltage"
       accuracy_decimals: 2
       disabled_by_default: True
       filters:
-        - throttle_average: 60s
+        - throttle_average: ${sensor_throttle}
     power:
       name: "Power"
       id: power
       accuracy_decimals: 2
       filters:
-        - throttle_average: 60s
+        - throttle_average: ${sensor_throttle}
   - name: "Energy"
     platform: integration
     sensor: power
