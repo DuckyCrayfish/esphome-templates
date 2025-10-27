@@ -86,7 +86,7 @@ switch:
     id: relay
     platform: gpio
     pin: GPIO12
-    restore_mode: RESTORE_DEFAULT_ON
+    restore_mode: ALWAYS_OFF # Powering the relay may cause damage or instability when the programmer is supplying Vcc.
 
 status_led:
   pin: GPIO13
