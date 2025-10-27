@@ -53,14 +53,20 @@ sensor:
       name: "Current"
       accuracy_decimals: 2
       disabled_by_default: True
+      filters:
+        - throttle_average: 60s
     voltage:
       name: "Voltage"
       accuracy_decimals: 2
       disabled_by_default: True
+      filters:
+        - throttle_average: 60s
     power:
       name: "Power"
       id: power
       accuracy_decimals: 2
+      filters:
+        - throttle_average: 60s
   - name: "Energy"
     platform: integration
     sensor: power
@@ -74,7 +80,7 @@ sensor:
     platform: total_daily_energy
     power_id: power
 
-time:
+time: # Required for total_daily_energy
   - id: the_time
     platform: sntp
 
