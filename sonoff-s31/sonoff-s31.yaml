@@ -55,12 +55,12 @@ sensor:
       disabled_by_default: True
     voltage:
       name: "Voltage"
-      accuracy_decimals: 1
+      accuracy_decimals: 2
       disabled_by_default: True
     power:
       name: "Power"
       id: power
-      accuracy_decimals: 1
+      accuracy_decimals: 2
   - name: "Energy"
     platform: integration
     sensor: power
