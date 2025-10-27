@@ -12,9 +12,6 @@ esp8266:
 
 api:
 
-wifi:
-  ap:
-
 captive_portal:
     
 ota:
