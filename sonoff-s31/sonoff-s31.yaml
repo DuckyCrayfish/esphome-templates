@@ -39,7 +39,7 @@ switch:
     pin: GPIO12
     restore_mode: ALWAYS_OFF # Powering the relay may cause damage or instability when the programmer is supplying Vcc.
   - name: "Factory reset"
-    id: factory_reset
+    id: factory_reset_switch
     platform: factory_reset
     disabled_by_default: True
 
@@ -56,7 +56,7 @@ binary_sensor:
       - timing:
           - ON for at least 10s
         then:
-          - switch.toggle: factory_reset
+          - switch.toggle: factory_reset_switch
 
 sensor:
   - name: "Wi-Fi signal"
