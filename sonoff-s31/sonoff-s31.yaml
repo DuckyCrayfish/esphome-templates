@@ -66,6 +66,11 @@ sensor:
       accuracy_decimals: 2
       filters:
         - throttle_average: ${sensor_throttle}
+    energy:
+      name: "Sonoff S31 Energy"
+      accuracy_decimals: 2
+      filters:
+        - throttle: ${sensor_throttle}
   - name: "Energy"
     platform: integration
     sensor: power
