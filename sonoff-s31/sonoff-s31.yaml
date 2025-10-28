@@ -9,11 +9,12 @@ esphome:
   min_version: 2024.9.0
 
 esp8266:
+  board: esp12e
   early_pin_init: false
 
 # Remove the following line if you're not using Home Assistant or your switch will restart every now and again.
 api:
-    
+
 ota:
   - platform: esphome
     id: ota_esphome
@@ -36,7 +37,7 @@ binary_sensor:
       mode: INPUT_PULLUP
       inverted: True
     on_press:
-      - switch.toggle: relay 
+      - switch.toggle: relay
 
 sensor:
   - name: "Wi-Fi signal"
@@ -79,7 +80,6 @@ switch:
   - name: "Factory Reset"
     platform: factory_reset
     disabled_by_default: True
-
 
 status_led:
   pin:
