@@ -87,7 +87,6 @@ switch:
 status_led:
   pin:
     number: GPIO13
-    inverted: True
 
 factory_reset:
   resets_required: 5
