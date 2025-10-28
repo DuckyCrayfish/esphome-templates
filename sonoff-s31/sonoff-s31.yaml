@@ -13,8 +13,6 @@ esp8266:
 
 # Remove the following line if you're not using Home Assistant or your switch will restart every now and again.
 api:
-
-captive_portal:
     
 ota:
   - platform: esphome
