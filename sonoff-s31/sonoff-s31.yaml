@@ -76,7 +76,7 @@ sensor:
       accuracy_decimals: 2
       filters:
         - throttle_average: ${sensor_throttle}
-  - name: "Daily Energy"
+  - name: "Daily energy"
     platform: total_daily_energy
     power_id: power
 
