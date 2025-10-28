@@ -76,8 +76,16 @@ switch:
     platform: gpio
     pin: GPIO12
     restore_mode: ALWAYS_OFF # Powering the relay may cause damage or instability when the programmer is supplying Vcc.
+  - name: "Factory Reset"
+    platform: factory_reset
+    disabled_by_default: True
+
 
 status_led:
   pin:
     number: GPIO13
     inverted: True
+
+factory_reset:
+  resets_required: 5
+  max_delay: 5s
