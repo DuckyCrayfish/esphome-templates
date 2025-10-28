@@ -37,8 +37,6 @@ binary_sensor:
       inverted: True
     on_press:
       - switch.toggle: relay 
-  - name: "Connection status"
-    platform: status
 
 sensor:
   - name: "Wi-Fi signal"
