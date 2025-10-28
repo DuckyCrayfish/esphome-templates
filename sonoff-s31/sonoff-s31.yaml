@@ -38,7 +38,8 @@ switch:
     platform: gpio
     pin: GPIO12
     restore_mode: ALWAYS_OFF # Powering the relay may cause damage or instability when the programmer is supplying Vcc.
-  - name: "Factory Reset"
+  - name: "Factory reset"
+    id: factory_reset
     platform: factory_reset
     disabled_by_default: True
 
@@ -51,6 +52,11 @@ binary_sensor:
       inverted: True
     on_press:
       - switch.toggle: relay
+    on_multi_click:
+      - timing:
+          - ON for at least 10s
+        then:
+          - switch.toggle: factory_reset
 
 sensor:
   - name: "Wi-Fi signal"
@@ -89,7 +95,3 @@ time: # Required for total_daily_energy
 status_led:
   pin:
     number: GPIO13
-
-factory_reset:
-  resets_required: 5
-  max_delay: 5s
