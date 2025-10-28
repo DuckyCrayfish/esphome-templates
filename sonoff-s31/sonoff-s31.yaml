@@ -64,21 +64,7 @@ sensor:
       accuracy_decimals: 2
       filters:
         - throttle_average: ${sensor_throttle}
-    energy:
-      name: "Sonoff S31 Energy"
-      accuracy_decimals: 2
-      filters:
-        - throttle: ${sensor_throttle}
   - name: "Energy"
-    platform: integration
-    sensor: power
-    time_unit: h
-    state_class: measurement
-    unit_of_measurement: kWh
-    filters:
-      - multiply: 0.001
-    icon: mdi:lightning-bolt
-  - name: "Total daily energy"
     platform: total_daily_energy
     power_id: power
 
@@ -87,7 +73,7 @@ time: # Required for total_daily_energy
     platform: sntp
 
 switch:
-  - name: "${friendly_name}"
+  - name: ${friendly_name}
     id: relay
     platform: gpio
     pin: GPIO12
