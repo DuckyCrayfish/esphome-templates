@@ -32,6 +32,16 @@ uart:
   baud_rate: 4800
   parity: EVEN
 
+switch:
+  - name: "${friendly_name}"
+    id: relay
+    platform: gpio
+    pin: GPIO12
+    restore_mode: ALWAYS_OFF # Powering the relay may cause damage or instability when the programmer is supplying Vcc.
+  - name: "Factory Reset"
+    platform: factory_reset
+    disabled_by_default: True
+
 binary_sensor:
   - name: "Button"
     platform: gpio
@@ -73,16 +83,6 @@ sensor:
 time: # Required for total_daily_energy
   - id: the_time
     platform: sntp
-
-switch:
-  - name: ${friendly_name}
-    id: relay
-    platform: gpio
-    pin: GPIO12
-    restore_mode: ALWAYS_OFF # Powering the relay may cause damage or instability when the programmer is supplying Vcc.
-  - name: "Factory Reset"
-    platform: factory_reset
-    disabled_by_default: True
 
 status_led:
   pin:
