@@ -1,3 +1,6 @@
+# Device info:
+# https://github.com/esphome/esphome-devices/blob/main/src/docs/devices/Sonoff-S31/index.md
+
 substitutions:
   name: sonoff-s31
   friendly_name: Sonoff S31
