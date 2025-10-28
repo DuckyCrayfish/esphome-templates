@@ -24,7 +24,7 @@ ota:
 
 # Disable UART logging
 logger:
-  level: INFO
+  initial_level: INFO
   baud_rate: 0 # (UART logging interferes with cse7766)
 
 uart:
