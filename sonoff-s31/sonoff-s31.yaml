@@ -79,6 +79,8 @@ sensor:
   - name: "Daily energy"
     platform: total_daily_energy
     power_id: power
+    filters:
+      - throttle: ${sensor_throttle}
 
 time: # Required for total_daily_energy
   - id: the_time
